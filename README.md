@@ -15,13 +15,18 @@ In both cases the data is divided into:
 The data is passed to the model in the form of patches of size = 16. And I didn't apply any image augmentation. 
 
 ## Project's components:
-The project consists of 6 notebooks:
-1. dataset: Has the methods required for downloading, preparing, reading and plot samples of the data.
-2. explore_dataset: By running this notebook you can read, print pixel values, see histogram and see actual samples of all planes' types of the dataset. This notebook imports a dataset notebook as it uses its functions to explore the data.
-3. model: Has the unet model class and functions. It is used to create instances of the model.
-4. utils: It contains all the helper functions which will be used to load and save the data. Also plot the used metrics (loss, accuracy and IoU) for visualizing the model performance.
-5. train_all_planes: Create a model. Apply training, validation and testing methods for the model with the entire 3 planes' dataloaders. To successfully run the model you need to combine all the 3 planes' datasets together, which is done through untils notebook.
-6. train_one_plane: Create a model. Apply training, validation and testing methods for the model with a specific plane type dataloaders. To successfully run the model you need to write which plane type (axial, or coronal or sagittal) you want to learn the model on. Here, we learn a model on axial data.
+The project consists of 7 notebooks:
+1. machine_learning: You can run only that notebook to: 
+* Explore the data
+* Build the model
+* Train, validate and test the model on the 3 planes training data (just as inside train_all_planes notebook)
+So, that notebook contain the entire projct inside. And to understand the project in more readable and easier way just read and run the notebooks (from 2 to 7)
+2. dataset: Has the methods required for downloading, preparing, reading and plot samples of the data.
+3. explore_dataset: By running this notebook you can read, print pixel values, see histogram and see actual samples of all planes' types of the dataset. This notebook imports a dataset notebook as it uses its functions to explore the data.
+4. model: Has the unet model class and functions. It is used to create instances of the model.
+5. utils: It contains all the helper functions which will be used to load and save the data. Also plot the used metrics (loss, accuracy and IoU) for visualizing the model performance.
+6. train_all_planes: Create a model. Apply training, validation and testing methods for the model with the entire 3 planes' dataloaders. To successfully run the model you need to combine all the 3 planes' datasets together, which is done through untils notebook.
+7. train_one_plane: Create a model. Apply training, validation and testing methods for the model with a specific plane type dataloaders. To successfully run the model you need to write which plane type (axial, or coronal or sagittal) you want to learn the model on. Here, we learn a model on axial data.
 - model_all_data_10: it is a saved model, which is trained on the entire 3 planes training data for 10 epochs.
 - model_axial_data_10: it is a saved model, which is trained on only axial's training data for 10 epochs.
 - predicted_masks folder: contains all predicted masks from model one (trained on3 planes together).
@@ -40,6 +45,7 @@ when running the "train_all_planes and train_one_plane" notebooks you will see t
 ## Used tools:
 - Python, pytorch
 - Google Drive
-- GPU of google colab and kaggle.
-- CPU of my pc using jupyter.
-### You can run the code on any of them, but it will take too much time to train models on CPU. you just need to adjust data path.
+* I trained the models on the following (and you can run it on any of them)
+  - GPU of google colab and kaggle.
+  - CPU of my pc using jupyter.
+### You can run the code on any of them, but it will take too much time to train models on CPU.
